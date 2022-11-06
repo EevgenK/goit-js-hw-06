@@ -14,20 +14,20 @@ const refs = {
 let size = 30;
 const addItem = () =>
   `<div style="background-color: ${getRandomHexColor()}; width: ${size}px;  height: ${size}px;"> </div>`;
-const items = ["box"];
+
 function createBoxes(amount) {
   amount = refs.input.value;
   for (let i = 0; i < amount; i++) {
-    const boxes = items.map((box) => addItem(box)).join("");
+    const box = addItem();
     size += 10;
-    refs.boxesEl.insertAdjacentHTML("beforeend", boxes);
+    refs.boxesEl.insertAdjacentHTML("beforeend", box);
     console.log(amount);
   }
 }
 
 const destroyBoxes = () => {
   refs.boxesEl.innerHTML = "";
-  return (size = 30);
+  size = 30;
 };
 
 refs.btnCreate.addEventListener("click", createBoxes);
